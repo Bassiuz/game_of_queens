@@ -48,7 +48,9 @@ class BoardTile extends StatelessWidget {
 
 enum TileColor {
   white('assets/white_tile.svg'),
-  black('assets/black_tile.svg');
+  black('assets/black_tile.svg'),
+  whiteMarked('assets/white_tile_marked.svg'),
+  blackMarked('assets/black_tile_marked.svg');
 
   const TileColor(this.asset);
 

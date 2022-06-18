@@ -13,11 +13,13 @@ class FilledBoardTile extends StatelessWidget {
     required this.column,
     required this.scale,
     this.queen,
+    required this.color,
   }) : super(key: key);
 
   final int row;
   final int column;
   final int scale;
+  final TileColor color;
   Queen? queen;
 
   @override
@@ -34,9 +36,7 @@ class FilledBoardTile extends StatelessWidget {
             row: row,
             column: column,
             scale: scale,
-            color: (row * 8 + column + (row % 2)) % 2 == 0
-                ? TileColor.white
-                : TileColor.black,
+            color: color,
           ),
         ),
         if (queen != null)
