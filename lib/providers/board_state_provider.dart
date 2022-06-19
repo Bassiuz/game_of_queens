@@ -10,6 +10,7 @@ class BoardStateProvider extends ChangeNotifier {
   });
 
   void placeQueen(Queen queen) {
+    if (queen.id < 0) return;
     if (placedQueens.where((element) => element.id == queen.id).isNotEmpty) {
       Queen existingQueen =
           placedQueens.where((element) => element.id == queen.id).first;
@@ -35,5 +36,11 @@ class BoardStateProvider extends ChangeNotifier {
     }
 
     return -1;
+  }
+
+  void placeQueenAt({required int row, required int column}) {
+    int id = getNextQueenID();
+    Queen queen = Queen(id: id, row: row, column: column);
+    placeQueen(queen);
   }
 }

@@ -30,17 +30,26 @@ class BoardTile extends StatelessWidget {
           .placeQueen(Queen(id: data, row: row, column: column));
     }, builder: (BuildContext context, List<int?> candidateData,
         List<dynamic> rejectedData) {
-      return Stack(
-        children: [
-          invalid
-              ? Expanded(
-                  child: Container(color: const Color.fromARGB(100, 255, 0, 0)))
-              : Container(),
-          SvgPicture.asset(
-            color.asset,
-            height: SpriteConstants.tileHeight * scale,
-          ),
-        ],
+      return GestureDetector(
+        onTap: () {
+          if (invalid) {
+            Provider.of<BoardStateProvider>(context, listen: false)
+                .placeQueenAt(row: row, column: column);
+          }
+        },
+        child: Stack(
+          children: [
+            invalid
+                ? Expanded(
+                    child:
+                        Container(color: const Color.fromARGB(100, 255, 0, 0)))
+                : Container(),
+            SvgPicture.asset(
+              color.asset,
+              height: SpriteConstants.tileHeight * scale,
+            ),
+          ],
+        ),
       );
     });
   }
