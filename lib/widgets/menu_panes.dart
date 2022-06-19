@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:game_of_queens/widgets/help_button.dart';
+import 'package:game_of_queens/widgets/introduction_widget.dart';
 import 'package:game_of_queens/widgets/piece_widgets/chessboard.dart';
 import 'package:game_of_queens/widgets/queen_menu.dart';
 import 'package:game_of_queens/widgets/remove_piece_wrapper.dart';
-import 'package:provider/provider.dart';
 
-import '../providers/board_state_provider.dart';
+import '../common/app_theme.dart';
 
 class MenuPanes extends StatelessWidget {
   const MenuPanes({Key? key}) : super(key: key);
@@ -54,21 +55,33 @@ class VerticalMenuPane extends StatelessWidget {
         Expanded(
             child: RemovePieceWrapper(
           child: Container(
-            color: Colors.blue,
-            child: Row(
-              children: [QueenMenu(scale: scale)],
+            color: AppTheme.translucentBlack,
+            child: const Padding(
+              padding: EdgeInsets.all(AppTheme.menuPadding),
+              child: Introduction(),
             ),
           ),
         )),
         SizedBox(
           width: boardSize,
           height: boardSize,
-          child: Container(
-              color: Colors.red,
-              child: Center(child: Chessboard(scale: scale))),
+          child: Center(child: Chessboard(scale: scale)),
         ),
         Expanded(
-            child: RemovePieceWrapper(child: Container(color: Colors.blue))),
+            child: RemovePieceWrapper(
+                child: Container(
+          color: AppTheme.translucentBlack,
+          child: Padding(
+            padding: const EdgeInsets.all(AppTheme.menuPadding),
+            child: Row(
+              children: [
+                QueenMenu(scale: scale),
+                const Spacer(),
+                const HelpButton(),
+              ],
+            ),
+          ),
+        ))),
       ],
     );
   }
@@ -95,31 +108,32 @@ class HorizontalMenuPane extends StatelessWidget {
         Expanded(
             child: RemovePieceWrapper(
           child: Container(
-            color: Colors.blue,
-            child: Column(children: [
-              Text('Scale $scale'),
-              Text('BoardSize $boardSize'),
-              Text('Minimal Menu Size $minMenuSize'),
-              Text('Menu Size $menuSize'),
-              QueenMenu(scale: scale),
-              ElevatedButton(
-                  onPressed: () {
-                    Provider.of<BoardStateProvider>(context, listen: false)
-                        .doSuggestedMove();
-                  },
-                  child: const Text('Help me a bit!'))
-            ]),
+            height: double.infinity,
+            color: AppTheme.translucentBlack,
+            child: const Padding(
+              padding: EdgeInsets.all(AppTheme.menuPadding),
+              child: Introduction(),
+            ),
           ),
         )),
         SizedBox(
           width: boardSize,
           height: boardSize,
-          child: Container(
-              color: Colors.red,
-              child: Center(child: Chessboard(scale: scale))),
+          child: Center(child: Chessboard(scale: scale)),
         ),
         Expanded(
-            child: RemovePieceWrapper(child: Container(color: Colors.blue))),
+            child: RemovePieceWrapper(
+                child: Container(
+          color: AppTheme.translucentBlack,
+          child: Padding(
+            padding: const EdgeInsets.all(AppTheme.menuPadding),
+            child: Column(children: [
+              QueenMenu(scale: scale),
+              const Spacer(),
+              const HelpButton(),
+            ]),
+          ),
+        ))),
       ],
     );
   }
