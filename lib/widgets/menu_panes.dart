@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_of_queens/widgets/piece_widgets/chessboard.dart';
-import 'package:game_of_queens/widgets/piece_widgets/queen_piece.dart';
-import 'package:provider/provider.dart';
-
-import '../models/queen.dart';
-import '../providers/board_state_provider.dart';
+import 'package:game_of_queens/widgets/queen_menu.dart';
+import 'package:game_of_queens/widgets/remove_piece_wrapper.dart';
 
 class MenuPanes extends StatelessWidget {
   const MenuPanes({Key? key}) : super(key: key);
@@ -27,7 +24,7 @@ class MenuPanes extends StatelessWidget {
       boardSize = vertical ? screenWidth - menuSize : screenHeight - menuSize;
     }
 
-    int scale = (boardSize / 120).floor();
+    int scale = (boardSize / 130).floor();
 
     return vertical
         ? VerticalMenuPane(scale: scale, boardSize: boardSize)
@@ -49,15 +46,15 @@ class VerticalMenuPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Queen> queens = Provider.of<BoardStateProvider>(context).placedQueens;
-
     return Column(
       children: [
         Expanded(
-            child: Container(
-          color: Colors.blue,
-          child: Row(
-            children: [QueenPiece(id: queens.length + 1, scale: scale)],
+            child: RemovePieceWrapper(
+          child: Container(
+            color: Colors.blue,
+            child: Row(
+              children: [QueenMenu(scale: scale)],
+            ),
           ),
         )),
         SizedBox(
@@ -67,7 +64,8 @@ class VerticalMenuPane extends StatelessWidget {
               color: Colors.red,
               child: Center(child: Chessboard(scale: scale))),
         ),
-        Expanded(child: Container(color: Colors.blue)),
+        Expanded(
+            child: RemovePieceWrapper(child: Container(color: Colors.blue))),
       ],
     );
   }
@@ -89,20 +87,20 @@ class HorizontalMenuPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Queen> queens = Provider.of<BoardStateProvider>(context).placedQueens;
-
     return Row(
       children: [
         Expanded(
-            child: Container(
-          color: Colors.blue,
-          child: Column(children: [
-            Text('Scale $scale'),
-            Text('BoardSize $boardSize'),
-            Text('Minimal Menu Size $minMenuSize'),
-            Text('Menu Size $menuSize'),
-            QueenPiece(id: queens.length + 1, scale: scale),
-          ]),
+            child: RemovePieceWrapper(
+          child: Container(
+            color: Colors.blue,
+            child: Column(children: [
+              Text('Scale $scale'),
+              Text('BoardSize $boardSize'),
+              Text('Minimal Menu Size $minMenuSize'),
+              Text('Menu Size $menuSize'),
+              QueenMenu(scale: scale)
+            ]),
+          ),
         )),
         SizedBox(
           width: boardSize,
@@ -111,7 +109,8 @@ class HorizontalMenuPane extends StatelessWidget {
               color: Colors.red,
               child: Center(child: Chessboard(scale: scale))),
         ),
-        Expanded(child: Container(color: Colors.blue)),
+        Expanded(
+            child: RemovePieceWrapper(child: Container(color: Colors.blue))),
       ],
     );
   }

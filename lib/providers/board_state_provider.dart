@@ -20,4 +20,20 @@ class BoardStateProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  void removeQueen(Queen queen) {
+    placedQueens =
+        placedQueens.where((element) => element.id != queen.id).toList();
+    notifyListeners();
+  }
+
+  int getNextQueenID() {
+    for (int i = 1; i <= 8; i++) {
+      if (placedQueens.where((element) => element.id == i).isEmpty) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
 }
