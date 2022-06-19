@@ -19,7 +19,6 @@ class BoardTile extends StatelessWidget {
   final TileColor color;
   final int row;
   final int column;
-  final bool invalid = true;
 
   @override
   Widget build(BuildContext context) {
@@ -35,18 +34,9 @@ class BoardTile extends StatelessWidget {
           Provider.of<BoardStateProvider>(context, listen: false)
               .placeQueenAt(row: row, column: column);
         },
-        child: Stack(
-          children: [
-            invalid
-                ? Expanded(
-                    child:
-                        Container(color: const Color.fromARGB(100, 255, 0, 0)))
-                : Container(),
-            SvgPicture.asset(
-              color.asset,
-              height: SpriteConstants.tileHeight * scale,
-            ),
-          ],
+        child: SvgPicture.asset(
+          color.asset,
+          height: SpriteConstants.tileHeight * scale,
         ),
       );
     });
