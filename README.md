@@ -9,5 +9,6 @@ A new Flutter project.
 ```
     flutter build web
     git push origin --delete gh-pages
+    git add build/web/ -f
     git subtree push --prefix build/web origin gh-pages
 ```
