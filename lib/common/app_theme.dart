@@ -7,21 +7,21 @@ class AppTheme {
 
   static const double menuPadding = 24.0;
 
-  static TextStyle titleStyle = const TextStyle(
+  static const TextStyle titleStyle = TextStyle(
     fontFamily: 'RainyHearts',
     fontSize: 24,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 
-  static TextStyle subTitleStyle = const TextStyle(
+  static const TextStyle subTitleStyle = TextStyle(
     fontFamily: 'RainyHearts',
     fontSize: 18,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 
-  static TextStyle textStyle = const TextStyle(
+  static const TextStyle textStyle = TextStyle(
     fontFamily: 'RainyHearts',
     color: Colors.white,
   );

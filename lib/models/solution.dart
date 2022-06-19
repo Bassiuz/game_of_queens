@@ -1,3 +1,4 @@
+import 'package:game_of_queens/common/game_constants.dart';
 import 'package:game_of_queens/models/queen.dart';
 
 class Solution {
@@ -13,7 +14,7 @@ class Solution {
         Queen(
           id: queens[i].id,
           row: queens[i].row,
-          column: 9 - queens[i].column,
+          column: GameConstants.boardSize + 1 - queens[i].column,
         ),
       );
     }
@@ -37,12 +38,12 @@ class Solution {
   Solution _rotateQuarter(Solution solution) {
     List<Queen> rotatedQueens = [];
 
-    for (int i = 0; i < queens.length; i++) {
+    for (int i = 0; i < solution.queens.length; i++) {
       rotatedQueens.add(
         Queen(
           id: queens[i].id,
           column: queens[i].row,
-          row: 9 - queens[i].column,
+          row: GameConstants.boardSize + 1 - queens[i].column,
         ),
       );
     }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../common/app_theme.dart';
 import 'package:provider/provider.dart';
 
+import '../common/app_theme.dart';
 import '../providers/board_state_provider.dart';
 
 class HelpButton extends StatelessWidget {
@@ -10,10 +10,9 @@ class HelpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {
-          Provider.of<BoardStateProvider>(context, listen: false)
-              .doSuggestedMove();
-        },
-        child: Text('Help me a bit!', style: AppTheme.subTitleStyle));
+      onPressed: () => Provider.of<BoardStateProvider>(context, listen: false)
+          .doSuggestedMove(),
+      child: const Text('Help me a bit!', style: AppTheme.subTitleStyle),
+    );
   }
 }

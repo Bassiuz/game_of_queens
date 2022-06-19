@@ -17,10 +17,11 @@ class PossibleSolutions {
       solutions
           .add(element.rotateSolution(Rotation.threeQuarters).mirrorSolution());
     }
+
     return solutions;
   }
 
-  static List<Solution> possibleUniqueSolutions = [
+  static final List<Solution> possibleUniqueSolutions = [
     Solution(queens: [
       Queen(id: 1, row: 1, column: 4),
       Queen(id: 2, row: 2, column: 7),

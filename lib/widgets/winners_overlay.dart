@@ -42,7 +42,7 @@ class _WinnersOverlayState extends State<WinnersOverlay> {
                   Colors.blue,
                   Colors.pink,
                   Colors.orange,
-                  Colors.purple
+                  Colors.purple,
                 ],
               ),
             ),

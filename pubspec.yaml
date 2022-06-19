@@ -17,6 +17,7 @@ dependencies:
   confetti: ^0.7.0
   alchemist: ^0.3.3
   golden_toolkit: ^0.13.0
+  dart_code_metrics: ^4.15.2
 
 dev_dependencies:
   flutter_test:

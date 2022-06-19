@@ -5,7 +5,16 @@ void main() {
   test('test amount of possible solutions', () {
     // tecnically there are less solutions because 4 are double due to symetry.
     // However, we keep them in the list to make them appear equally as a possible solution.
-    expect(PossibleSolutions.possibleSolutions().length, 12 * 8);
-    expect(PossibleSolutions.possibleUniqueSolutions.length, 12);
+    int expectedAmountOfUniqueSolutions = 12;
+    int amountOfVariationsForEachSolution = 8;
+
+    expect(
+      PossibleSolutions.possibleSolutions().length,
+      expectedAmountOfUniqueSolutions * amountOfVariationsForEachSolution,
+    );
+    expect(
+      PossibleSolutions.possibleUniqueSolutions.length,
+      expectedAmountOfUniqueSolutions,
+    );
   });
 }

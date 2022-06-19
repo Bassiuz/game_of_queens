@@ -28,6 +28,7 @@ class FilledBoardTile extends StatelessWidget {
             SpriteConstants.tileHeight +
             SpriteConstants.tilePlacementOffset) *
         scale;
+
     return Stack(
       children: [
         Padding(

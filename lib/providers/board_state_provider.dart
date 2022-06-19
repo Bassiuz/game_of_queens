@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_of_queens/common/game_constants.dart';
 import 'package:game_of_queens/common/game_engine.dart';
 import 'package:game_of_queens/common/solutions_engine.dart';
 
@@ -8,11 +9,11 @@ import '../models/move_type.dart';
 import '../models/queen.dart';
 
 class BoardStateProvider extends ChangeNotifier {
-  List<Queen> placedQueens;
-
   BoardStateProvider({
     this.placedQueens = const [],
   });
+
+  List<Queen> placedQueens;
 
   void placeQueen(Queen queen) {
     if (!_validQueenPlacement(queen)) return;
@@ -35,7 +36,7 @@ class BoardStateProvider extends ChangeNotifier {
   }
 
   int getNextQueenID() {
-    for (int i = 1; i <= 8; i++) {
+    for (int i = 1; i <= GameConstants.boardSize; i++) {
       if (placedQueens.where((element) => element.id == i).isEmpty) {
         return i;
       }
@@ -79,7 +80,7 @@ class BoardStateProvider extends ChangeNotifier {
   }
 
   bool isWinningBoardState() {
-    if (placedQueens.length < 8) return false;
+    if (placedQueens.length < GameConstants.boardSize) return false;
 
     return GameEngine().isWinningGame(placedQueens);
   }
