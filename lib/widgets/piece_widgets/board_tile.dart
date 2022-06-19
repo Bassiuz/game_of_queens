@@ -15,7 +15,7 @@ class BoardTile extends StatelessWidget {
       required this.column})
       : super(key: key);
 
-  final int scale;
+  final double scale;
   final TileColor color;
   final int row;
   final int column;

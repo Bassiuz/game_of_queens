@@ -8,7 +8,7 @@ import '../providers/board_state_provider.dart';
 class QueenMenu extends StatelessWidget {
   const QueenMenu({Key? key, required this.scale}) : super(key: key);
 
-  final int scale;
+  final double scale;
 
   @override
   Widget build(BuildContext context) {

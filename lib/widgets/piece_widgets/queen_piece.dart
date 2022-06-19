@@ -7,7 +7,7 @@ class QueenPiece extends StatelessWidget {
   const QueenPiece({Key? key, required this.scale, required this.id})
       : super(key: key);
 
-  final int scale;
+  final double scale;
   final int id;
 
   @override

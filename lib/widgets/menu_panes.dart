@@ -24,7 +24,7 @@ class MenuPanes extends StatelessWidget {
       boardSize = vertical ? screenWidth - menuSize : screenHeight - menuSize;
     }
 
-    int scale = (boardSize / 130).floor();
+    double scale = (boardSize / 130);
 
     return vertical
         ? VerticalMenuPane(scale: scale, boardSize: boardSize)
@@ -41,7 +41,7 @@ class VerticalMenuPane extends StatelessWidget {
       {Key? key, required this.scale, required this.boardSize})
       : super(key: key);
 
-  final int scale;
+  final double scale;
   final double boardSize;
 
   @override
@@ -80,7 +80,7 @@ class HorizontalMenuPane extends StatelessWidget {
       required this.minMenuSize})
       : super(key: key);
 
-  final int scale;
+  final double scale;
   final double boardSize;
   final double menuSize;
   final double minMenuSize;

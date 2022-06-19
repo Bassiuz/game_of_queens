@@ -18,7 +18,7 @@ class FilledBoardTile extends StatelessWidget {
 
   final int row;
   final int column;
-  final int scale;
+  final double scale;
   final TileColor color;
   Queen? queen;
 
