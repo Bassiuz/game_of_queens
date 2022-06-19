@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:game_of_queens/widgets/help_button.dart';
 import 'package:game_of_queens/widgets/introduction_widget.dart';
@@ -21,7 +23,7 @@ class MenuPanes extends StatelessWidget {
     double menuSize =
         vertical ? screenHeight - boardSize : screenWidth - boardSize;
 
-    double minMenuSize = 200;
+    double minMenuSize = max(screenHeight, screenWidth) * 0.3;
 
     if (menuSize < minMenuSize) {
       menuSize = minMenuSize;
