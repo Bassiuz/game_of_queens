@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/app_theme.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/board_state_provider.dart';
@@ -13,6 +14,6 @@ class HelpButton extends StatelessWidget {
           Provider.of<BoardStateProvider>(context, listen: false)
               .doSuggestedMove();
         },
-        child: const Text('Help me a bit!'));
+        child: Text('Help me a bit!', style: AppTheme.subTitleStyle));
   }
 }

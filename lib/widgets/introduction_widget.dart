@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:game_of_queens/common/app_theme.dart';
+import '../common/app_theme.dart';
 
 class Introduction extends StatelessWidget {
   const Introduction({Key? key}) : super(key: key);
@@ -8,6 +8,7 @@ class Introduction extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        // Generally speaking I would like to save these texts somewhere else; probably with a language file. But since these are the only texts in the app and internationalization seems a bit overkill here, I'll just leave them here.
         children: [
           Text('Game of Queens', style: AppTheme.titleStyle),
           Text('By: Bas de Vaan', style: AppTheme.subTitleStyle),
