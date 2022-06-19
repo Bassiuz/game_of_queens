@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_of_queens/providers/board_state_provider.dart';
 import 'package:game_of_queens/widgets/menu_panes.dart';
+import 'package:game_of_queens/widgets/winners_overlay.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,9 +19,14 @@ class MyApp extends StatelessWidget {
           create: (_) => BoardStateProvider(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         home: Scaffold(
-          body: MenuPanes(),
+          body: Stack(
+            children: const [
+              MenuPanes(),
+              WinnersOverlay(),
+            ],
+          ),
         ),
       ),
     );

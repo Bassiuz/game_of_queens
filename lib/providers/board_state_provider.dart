@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_of_queens/common/game_engine.dart';
 import 'package:game_of_queens/common/solutions_engine.dart';
 
 import '../models/move.dart';
@@ -72,6 +73,19 @@ class BoardStateProvider extends ChangeNotifier {
             element.row == queen.row && element.column == queen.column)
         .isNotEmpty) {
       return false;
+    }
+
+    return true;
+  }
+
+  bool isWinningBoardState() {
+    if (placedQueens.length < 8) return false;
+
+    for (Queen queen in placedQueens) {
+      if (GameEngine().tileIsCoveredTwice(
+          row: queen.row,
+          column: queen.column,
+          placedQueens: placedQueens)) return false;
     }
 
     return true;

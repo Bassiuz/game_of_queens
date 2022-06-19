@@ -3,6 +3,7 @@ import 'package:game_of_queens/widgets/piece_widgets/board_tile.dart';
 import 'package:game_of_queens/widgets/piece_widgets/filled_board_tile.dart';
 import 'package:provider/provider.dart';
 
+import '../../common/game_engine.dart';
 import '../../common/sprite_constants.dart';
 import '../../models/queen.dart';
 import '../../providers/board_state_provider.dart';
@@ -62,31 +63,8 @@ class Chessboard extends StatelessWidget {
         ? TileColor.white
         : TileColor.black;
 
-    bool marked = false;
-
-    if (placedQueens.where((element) => element.row == row).length > 1) {
-      marked = true;
-    }
-
-    if (placedQueens.where((element) => element.column == column).length > 1) {
-      marked = true;
-    }
-
-    if (placedQueens
-            .where((element) => element.row + element.column == row + column)
-            .length >
-        1) {
-      marked = true;
-    }
-
-    if (placedQueens
-            .where((element) => element.row - element.column == row - column)
-            .length >
-        1) {
-      marked = true;
-    }
-
-    return marked
+    return GameEngine().tileIsCoveredTwice(
+            placedQueens: placedQueens, row: row, column: column)
         ? baseColor == TileColor.black
             ? TileColor.blackMarked
             : TileColor.whiteMarked
