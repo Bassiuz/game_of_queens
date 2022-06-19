@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:game_of_queens/widgets/piece_widgets/chessboard.dart';
 import 'package:game_of_queens/widgets/queen_menu.dart';
 import 'package:game_of_queens/widgets/remove_piece_wrapper.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/board_state_provider.dart';
 
 class MenuPanes extends StatelessWidget {
   const MenuPanes({Key? key}) : super(key: key);
@@ -98,7 +101,13 @@ class HorizontalMenuPane extends StatelessWidget {
               Text('BoardSize $boardSize'),
               Text('Minimal Menu Size $minMenuSize'),
               Text('Menu Size $menuSize'),
-              QueenMenu(scale: scale)
+              QueenMenu(scale: scale),
+              ElevatedButton(
+                  onPressed: () {
+                    Provider.of<BoardStateProvider>(context, listen: false)
+                        .doSuggestedMove();
+                  },
+                  child: const Text('Help me a bit!'))
             ]),
           ),
         )),

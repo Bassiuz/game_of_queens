@@ -1,0 +1,1 @@
+enum MoveType { place, remove }

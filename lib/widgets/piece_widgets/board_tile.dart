@@ -32,10 +32,8 @@ class BoardTile extends StatelessWidget {
         List<dynamic> rejectedData) {
       return GestureDetector(
         onTap: () {
-          if (invalid) {
-            Provider.of<BoardStateProvider>(context, listen: false)
-                .placeQueenAt(row: row, column: column);
-          }
+          Provider.of<BoardStateProvider>(context, listen: false)
+              .placeQueenAt(row: row, column: column);
         },
         child: Stack(
           children: [
