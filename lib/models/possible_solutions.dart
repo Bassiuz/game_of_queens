@@ -98,8 +98,8 @@ class PossibleSolutions {
       Queen(id: 4, row: 4, column: 8),
       Queen(id: 5, row: 5, column: 6),
       Queen(id: 6, row: 6, column: 3),
-      Queen(id: 7, row: 7, column: 2),
-      Queen(id: 8, row: 8, column: 1),
+      Queen(id: 7, row: 7, column: 7),
+      Queen(id: 8, row: 8, column: 2),
     ]),
     Solution(queens: [
       Queen(id: 1, row: 1, column: 3),

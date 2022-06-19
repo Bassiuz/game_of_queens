@@ -81,13 +81,6 @@ class BoardStateProvider extends ChangeNotifier {
   bool isWinningBoardState() {
     if (placedQueens.length < 8) return false;
 
-    for (Queen queen in placedQueens) {
-      if (GameEngine().tileIsCoveredTwice(
-          row: queen.row,
-          column: queen.column,
-          placedQueens: placedQueens)) return false;
-    }
-
-    return true;
+    return GameEngine().isWinningGame(placedQueens);
   }
 }
