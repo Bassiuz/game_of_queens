@@ -12,7 +12,7 @@ class Introduction extends StatelessWidget {
           Text('Game of Queens', style: AppTheme.titleStyle),
           Text('By: Bas de Vaan', style: AppTheme.subTitleStyle),
           Text(
-            'In Game of Queens. You have to place your pieces on the board so that no two queens can attack each other. The game is over when all the queens are placed.',
+            'In Game of Queens, you have to place your pieces on the board so that no two queens can attack each other. The game is over when all the queens are placed.',
             style: AppTheme.textStyle,
           ),
           Text(
