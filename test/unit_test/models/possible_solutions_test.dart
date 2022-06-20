@@ -7,10 +7,12 @@ void main() {
     // However, we keep them in the list to make them appear equally as a possible solution.
     int expectedAmountOfUniqueSolutions = 12;
     int amountOfVariationsForEachSolution = 8;
+    int symetricalSolutions = 4;
 
     expect(
       PossibleSolutions.possibleSolutions().length,
-      expectedAmountOfUniqueSolutions * amountOfVariationsForEachSolution,
+      expectedAmountOfUniqueSolutions * amountOfVariationsForEachSolution -
+          symetricalSolutions,
     );
     expect(
       PossibleSolutions.possibleUniqueSolutions.length,
