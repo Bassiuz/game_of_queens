@@ -74,10 +74,6 @@ class SolutionsEngine {
     }
 
     // something went wrong
-    return Move(
-      row: -1,
-      column: -1,
-      moveType: MoveType.place,
-    );
+    return Move(row: -1, column: -1, moveType: MoveType.place);
   }
 }
